@@ -16,6 +16,8 @@ import Tech from './Screens/Tech';
 import Business from './Screens/Business';
 import Politics from './Screens/Politics';
 import All from './Screens/All';
+import Icon from 'react-native-vector-icons/Feather';
+import {services} from './Services';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,25 +31,32 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-      // screenOptions={({route}) => ({
-      //   tabBarIcon: ({focused, color, size}) => {
-      //     let iconName;
+        screenOptions={({route}) => ({
+          tabBarIcon: ({focused, color, size}) => {
+            let iconName;
 
-      //     if (route.name === 'All') {
-      //       iconName = focused
-      //         ? 'ios-information-circle'
-      //         : 'ios-information-circle-outline';
-      //     } else if (route.name === 'Tech') {
-      //       iconName = focused ? 'ios-list' : 'ios-list-outline';
-      //     }
+            if (route.name === 'Sport') {
+              iconName = focused ? 'globe' : 'globe';
+            } else if (route.name === 'Business') {
+              iconName = focused ? 'briefcase' : 'briefcase';
+            } else if (route.name === 'Tech') {
+              iconName = focused ? 'smartphone' : 'smartphone';
+            } else if (route.name === 'All') {
+              iconName = focused ? 'home' : 'home';
+            } else if (route.name === 'Politics') {
+              iconName = focused ? 'archive' : 'archive';
+            }
 
-      //     // You can return any component that you like here!
-      //     return <Ionicons name={iconName} size={size} color={color} />;
-      //   },
-      //   tabBarActiveTintColor: 'tomato',
-      //   tabBarInactiveTintColor: 'gray',
-      // })}
-      >
+            // You can return any component that you like here!
+            return (
+              <View>
+                <Icon name={iconName} size={size} color={color} />
+              </View>
+            );
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}>
         <Tab.Screen name="Sport" component={Sport} />
         <Tab.Screen name="Tech" component={Tech} />
         <Tab.Screen name="All" component={All} />
