@@ -25,3 +25,8 @@ https://www.freecodecamp.org/news/build-an-android-news-app-with-react-native-an
 - See fix here: https://www.npmjs.com/package/react-native-vector-icons#android
 
 
+## To do: 
+
+1. Style project nicer
+2. Add search functionality
+3. Add saved articles functionality either with an account creation or with offline data persistence. 
